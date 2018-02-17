@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css"> 
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <title>VAT Calculator</title>
+ </head>
+<body>
+    <div class="container" id="container">
+            
+      <div class="header">
+          <input v-model="calc_value" v-on:click="clear_calc_value" name="1" placeholder="" />
+      </div>
+      <div class="numberFields">
+          <input v-on:click="add(1)" type="button" name="1" value="1" />
+          <input v-on:click="add(2)" type="button" name="2" value="2" />
+          <input v-on:click="add(3)" type="button" name="3" value="3" />
+          <input v-on:click="add(4)" type="button" name="4" value="4" />
+          <input v-on:click="add(5)" type="button" name="5" value="5" />
+          <input v-on:click="add(6)" type="button" name="6" value="6" />
+          <input v-on:click="add(7)" type="button" name="7" value="7" />
+          <input v-on:click="add(8)" type="button" name="8" value="8" />
+          <input v-on:click="add(9)" type="button" name="9" value="9" />
+          <input v-on:click="add(0)" type="button" name="0" value="0" />
+          <input v-on:click="add('00')" type="button" name="00" value="00" />
+          <input v-on:click="add('.')" type="button" name="." value="." />
+      </div>
+      <div class="calc-operations">
+          <input v-on:click="add_vat" type="button" name="+vat" value="+vat" />
+          <input v-on:click="remove_vat" type="button" name="-vat" value="-vat" />
+          <select v-model="selected">
+            <option v-for="item in vat_rate" v-bind:value="item.value">
+                {{ item.text }}
+          </option>        
+        </select>
+      </div>
+      <div class="answers">
+        <form>
+        <label for="net">Net</label>
+        <input v-model="net" type="text" name="net" value="£4567" disabled></input>
+
+        <label for="vat">Vat</label>
+        <input v-model="vat" type="text" name="vat" value="£3241" disabled></input>
+
+        <label for="total">Total</label>
+        <input v-model="total" type="text" name="total" value="£4745" disabled></input>
+      </form>
+      </div>
+      <div>
+       
+      </div>
+    </div>
+</body>
+<script src="logic.js"></script>
+</html>
