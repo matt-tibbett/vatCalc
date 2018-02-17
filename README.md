@@ -1,3 +1,3 @@
 # vatCalc
-Calculator to easily add or remove VAT.
-branch-edit
+Vue.js 2 Calculator to easily add or remove VAT.
+
