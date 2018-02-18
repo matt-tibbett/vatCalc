@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="calc.css"> 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
   <title>VAT Calculator</title>
  </head>
 <body>
-    <div class="container" id="container">
-            
+    <div class="container" id="container">           
       <div class="header">
           <input v-model="calc_value" v-on:click="clear_calc_value" name="1" placeholder="" />
       </div>
@@ -31,7 +30,7 @@
       <div class="calc-operations">
           <input v-on:click="add_vat" type="button" name="+vat" value="+vat" />
           <input v-on:click="remove_vat" type="button" name="-vat" value="-vat" />
-          <select v-model="selected">
+          <select v-model="selected" @change="change_vat_rate()">
             <option v-for="item in vat_rate" v-bind:value="item.value">
                 {{ item.text }}
           </option>        
@@ -40,19 +39,16 @@
       <div class="answers">
         <form>
         <label for="net">Net</label>
-        <input v-model="net" type="text" name="net" value="£4567" disabled></input>
+        <input v-model="net" type="text" name="net" value="" disabled></input>
 
         <label for="vat">Vat</label>
-        <input v-model="vat" type="text" name="vat" value="£3241" disabled></input>
+        <input v-model="vat" type="text" name="vat" value="" disabled></input>
 
         <label for="total">Total</label>
-        <input v-model="total" type="text" name="total" value="£4745" disabled></input>
+        <input v-model="total" type="text" name="total" value="" disabled></input>
       </form>
-      </div>
-      <div>
-       
       </div>
     </div>
 </body>
-<script src="logic.js"></script>
+<script src="calc.js"></script>
 </html>
